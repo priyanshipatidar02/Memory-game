@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Puzzle Game 🧠</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light">
+    <header>
+        <h1>Memory Puzzle Game 🧠</h1>
+        <div class="controls">
+            <button id="toggleThemeBtn">🌙 Dark Mode</button>
+            <button id="resetBtn">🔄 Reset</button>
+        </div>
+        <p>Moves: <span id="moveCounter">0</span></p>
+    </header>
+
+    <main class="game-board" id="gameBoard"></main>
+
+    <!-- Win modal -->
+    <div id="winModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>🎉 You won!</h2>
+            <p>Total moves: <span id="finalMoves"></span></p>
+            <button id="playAgainBtn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

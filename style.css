@@ -1,0 +1,183 @@
+/* Base styling */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  margin-top: 1.5rem;
+}
+h1 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.controls {
+  margin-bottom: 0.5rem;
+}
+button {
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.3rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Game board */
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-gap: 15px;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.card {
+  width: 80px;
+  height: 80px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  backface-visibility: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+p {
+  margin: 0.5rem;
+}
+
+/* === Light Theme === */
+body.light {
+  background: #fdfdfd;
+  color: #333;
+}
+body.light #toggleThemeBtn {
+  background: #333;
+  color: #fff;
+}
+body.light #resetBtn {
+  background: #7bc6cc;
+  color: #fff;
+}
+body.light #resetBtn:hover {
+  background: #56a3a6;
+}
+body.light .card-front {
+  background: #ffffff;
+}
+body.light .card-back {
+  background: #f8d1d1; /* pastel blush */
+  color: #333;
+}
+
+/* === Dark Theme === */
+body.dark {
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+body.dark #toggleThemeBtn {
+  background: #f0f0f0;
+  color: #1e1e1e;
+}
+body.dark #resetBtn {
+  background: #444;
+  color: #f0f0f0;
+}
+body.dark #resetBtn:hover {
+  background: #666;
+}
+body.dark .card-front {
+  background: #333;
+}
+body.dark .card-back {
+  background: #4a4a4a;
+  color: #fff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.modal.hidden {
+  display: none;
+}
+.modal-content {
+  background: #fff;
+  color: #333;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  animation: scaleIn 0.4s ease;
+}
+.modal-content h2 {
+  margin-bottom: 0.5rem;
+}
+.modal-content button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #7bc6cc;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.modal-content button:hover {
+  background: #56a3a6;
+}
+body.dark .modal-content {
+  background: #333;
+  color: #fff;
+}
+body.dark .modal-content button {
+  background: #444;
+}
+body.dark .modal-content button:hover {
+  background: #666;
+}
+
+/* Animation */
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
